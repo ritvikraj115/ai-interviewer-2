@@ -25,7 +25,7 @@ const CallHistory = () => {
     // Fetch the call history for the given agentId
     const fetchCallHistory = async () => {
       try {
-        const response = await axios.post(`${process.env.BACKEND_URL}/get-call-history`, { agent_id });
+        const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/get-call-history`, { agent_id });
         setCalls(response.data); 
         console.log(response.data) // Assuming the response data is an array of calls
         setLoading(false);
