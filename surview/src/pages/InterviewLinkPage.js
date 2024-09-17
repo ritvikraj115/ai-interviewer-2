@@ -58,13 +58,13 @@ function InterviewLinkPage() {
   }, [questions]); // Dependency array to ensure useCallback is updated with the latest questions
 
   const createLLM=(async()=>{
-    const response=await axios.post(`${process.env.BACKEND_URL}/create-llm`, {
+    const response=await axios.post(`${process.env.REACT_APP_BACKEND_URL}/create-llm`, {
       questions,
       prompt
     });
     console.log(response.data.agent_id);
     console.log(questions)
-    const response1= await axios.post(`http://localhost:5000/user/${location.state.email}/projects`,{
+    const response1= await axios.post(`${process.env.REACT_APP_BACKEND_URL}/user/${location.state.email}/projects`,{
       projectName: location.state.projectName,
       agentId: response.data.agent_id,
       questions: questions,
