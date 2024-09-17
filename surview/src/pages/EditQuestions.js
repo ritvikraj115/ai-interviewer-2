@@ -52,7 +52,7 @@ function EditQuestions() {
 
     // Example:
 
-    const response=await axios.post(`${process.env.BACKEND_URL}/updatellm`, {
+    const response=await axios.post(`${process.env.REACT_APP_BACKEND_URL}/updatellm`, {
         questions,
         prompt,
         agent_id,
@@ -67,7 +67,7 @@ function EditQuestions() {
     
     console.log('Questions saved:', questions);
 
-    const response1=await fetch(`${process.env.BACKEND_URL}/user/${email}/projects/${projectId}/questions`, {
+    const response1=await fetch(`${process.env.REACT_APP_BACKEND_URL}/user/${email}/projects/${projectId}/questions`, {
       method: 'PUT',
       body: JSON.stringify({ questions, agent }),
       headers: { 'Content-Type': 'application/json' },
@@ -76,7 +76,7 @@ function EditQuestions() {
 
   useEffect(()=>{
     const fetchQuestions = async()=>{
-    const response= await axios.get(`${process.env.BACKEND_URL}/user/${email}/projects/${projectId}/questions`)
+    const response= await axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/${email}/projects/${projectId}/questions`)
     
     const formattedQuestions = response.data.questions.map((question) => ({
         questionText: question.questionText
