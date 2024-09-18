@@ -55,7 +55,7 @@ router.post('/generate-questions', async (req, res) => {
       messages: [
         {
           role: 'system',
-          content: `You're a UX researcher. You're tasked to come up with 6 to 10 questions based for "${projectName}" based on "${projectOffering}" and aligning with "${feedbackDesired}".Just start by printing questions, no greeting or any other text should be in your response.
+          content: `You're a UX researcher. You're tasked to come up with 6 to 10 questions for "${projectName}" based on "${projectOffering}" and aligning with "${feedbackDesired}". Each question should be in bold and followed by one relevant probing question in brackets, which would follow up based on a potential general answer. For example: "**Do you think our app is useful?** (If the answer is general: How can you say that?)". Just print the questions and probing questions in the format specified, with no additional text.
 
 Keep in mind the friendly welcome has to be generic and relatable, so don't assume something here. Also keep the questions engaging, friendly.
 
