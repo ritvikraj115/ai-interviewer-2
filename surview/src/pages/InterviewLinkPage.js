@@ -9,8 +9,8 @@ function InterviewLinkPage() {
   const location = useLocation();
   const navigate= useNavigate();
   const [prompt, setPrompt] = useState('');
+  const projectName= location.state.projectName;
   const formattedQuestions = location.state.questions
-  const projectName= location.state.projectName
   .map((question, index) => {
     // Only map questions at even indexes
     if (index % 1 === 0) {
