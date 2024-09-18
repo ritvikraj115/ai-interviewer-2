@@ -780,7 +780,7 @@ router.post('/updatellm', async (req, res) => {
     const llmResponse = await retellClient.llm.update(llm_id,updatePayload);
 
     const agent_response = await retellClient.agent.update(
-      agent_id, {llm_websocket_url:llmResponse.llm_websocket_url}
+      agent_id, {llm_websocket_url:llmResponse.llm_websocket_url, interruption_sensitivity: 0.8,}
   )
   console.log(agent_response)
     // Return success response
