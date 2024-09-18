@@ -591,7 +591,7 @@ Have you used [PRODUCT] before? Adoption Demographics Multiple Choice Block, Scr
 
 
 router.post('/create-llm', async (req, res) => {
-  const { questions, prompt } = req.body;
+  const { questions, prompt, projectName } = req.body;
   console.log(prompt)
   console.log(questions[0].questionText)
   // Validate questions input
@@ -621,7 +621,7 @@ router.post('/create-llm', async (req, res) => {
     const createdAgent = await retellClient.agent.create({
       llm_websocket_url: llmResponse.llm_websocket_url,  // Use the passed WebSocket URL from LLM creation
       voice_id: '11labs-Adrian',  // Define voice ID
-      agent_name: 'Ryan',  // Agent name
+      agent_name: projectName,  // Agent name
       interruption_sensitivity: 0.8,
     });
 
