@@ -12,10 +12,20 @@ const retellClient = new Retell({
   apiKey: process.env.RETELL_AI_KEY,
 });
 
+const promptSchema = new mongoose.Schema({
+  retell_ai_prompt: String,
+  open_ai_prompt: String,
+});
 
+
+
+// Use the 'prompt' collection from the 'prompts' database
+const Prompt = mongoose.model('Prompt', promptSchema, 'prompt');
+const promptData = await Prompt.findOne();
 
 router.post('/check-email', async (req, res) => {
   const { email } = req.body;
+  console.log(promptData)
 
   try {
     // Check if a user with the given email already exists
