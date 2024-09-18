@@ -26,7 +26,7 @@ const Prompt = mongoose.model('Prompt', promptSchema, 'prompt');
 router.post('/check-email', async (req, res) => {
   const promptData = await Prompt.findOne();
   const { email } = req.body;
-  console.log(promptData)
+  console.log(promptData.retell_ai_prompt)
 
   try {
     // Check if a user with the given email already exists
