@@ -75,7 +75,7 @@ router.post('/generate-questions', async (req, res) => {
         },
         {
           role: 'user',
-          content: `You have to generate a set of questions for project name:${projectName} on projectOffering:${projectOffering} and expected desired feedback:${feedbackDesired}. Strictly consider the following instructions while generating questions:${prompt}`,
+          content: `You have to generate a set of questions for project name- ${projectName} on projectOffering- ${projectOffering} and expected desired feedback- ${feedbackDesired}. Strictly consider the following instructions while generating questions- ${prompt}`,
         },
       ],
       max_tokens: 400,  // Set the token limit high enough to generate multiple questions
@@ -110,7 +110,7 @@ router.post('/create-llm', async (req, res) => {
   try {
     // Create a new LLM in Retell with the provided questions
     const llmResponse = await retellClient.llm.create({
-      general_prompt: `${promptData.retell_ai_prompt}. Strictly consider the following user requirement before creating llm: ${prompt}`,
+      general_prompt: `${promptData.retell_ai_prompt} Strictly consider the following user requirement before creating llm- ${prompt}`,
       states: questions.map((question, index) => ({
         name: `question_${index + 1}`,
         state_prompt: question.questionText,
