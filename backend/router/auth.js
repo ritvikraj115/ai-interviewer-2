@@ -623,6 +623,7 @@ router.post('/create-llm', async (req, res) => {
       voice_id: '11labs-Adrian',  // Define voice ID
       agent_name: projectName,  // Agent name
       interruption_sensitivity: 0.8,
+      responsiveness:0.8,
     });
 
     res.status(200).json({
@@ -780,7 +781,7 @@ router.post('/updatellm', async (req, res) => {
     const llmResponse = await retellClient.llm.update(llm_id,updatePayload);
 
     const agent_response = await retellClient.agent.update(
-      agent_id, {llm_websocket_url:llmResponse.llm_websocket_url, interruption_sensitivity: 0.8,}
+      agent_id, {llm_websocket_url:llmResponse.llm_websocket_url, interruption_sensitivity: 0.8, responsiveness:0.8,}
   )
   console.log(agent_response)
     // Return success response
