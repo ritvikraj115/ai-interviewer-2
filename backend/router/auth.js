@@ -61,21 +61,16 @@ router.post('/generate-questions', async (req, res) => {
 
   try {
     // Create a completion request to OpenAI API
-    const completion = await openai.chat.completions.create({
+ const completion = await openai.chat.completions.create({
       model: 'gpt-4', // Using GPT-4 model for best quality
       messages: [
         {
           role: 'system',
-          content: `${promptData.open_ai_prompt}`,
-
-
-
-
-`
+          content: `${promptData.open_ai_prompt}`,  // Fetching the system prompt from DB
         },
         {
           role: 'user',
-          content: 'You have to generate a set of questions for project name- ${projectName} on projectOffering- ${projectOffering} and expected desired feedback- ${feedbackDesired}. Strictly consider the following instructions while generating questions- ${prompt}',
+          content: `You have to generate a set of questions for project name - ${projectName} on project offering - ${projectOffering} and expected desired feedback - ${feedbackDesired}. Strictly consider the following instructions while generating questions: ${prompt}`,
         },
       ],
       max_tokens: 400,  // Set the token limit high enough to generate multiple questions
