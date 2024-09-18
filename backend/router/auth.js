@@ -21,9 +21,9 @@ const promptSchema = new mongoose.Schema({
 
 // Use the 'prompt' collection from the 'prompts' database
 const Prompt = mongoose.model('Prompt', promptSchema, 'prompt');
-const promptData = await Prompt.findOne();
 
 router.post('/check-email', async (req, res) => {
+  const promptData = await Prompt.findOne();
   const { email } = req.body;
   console.log(promptData)
 
