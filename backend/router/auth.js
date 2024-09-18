@@ -66,7 +66,7 @@ router.post('/generate-questions', async (req, res) => {
       messages: [
         {
           role: 'system',
-          content: `${promptData.open_ai_prompt}`
+          content: `${promptData.open_ai_prompt}`,
 
 
 
@@ -75,7 +75,7 @@ router.post('/generate-questions', async (req, res) => {
         },
         {
           role: 'user',
-          content: `You have to generate a set of questions for project name- ${projectName} on projectOffering- ${projectOffering} and expected desired feedback- ${feedbackDesired}. Strictly consider the following instructions while generating questions- ${prompt}`,
+          content: 'You have to generate a set of questions for project name- ${projectName} on projectOffering- ${projectOffering} and expected desired feedback- ${feedbackDesired}. Strictly consider the following instructions while generating questions- ${prompt}',
         },
       ],
       max_tokens: 400,  // Set the token limit high enough to generate multiple questions
