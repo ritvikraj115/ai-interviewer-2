@@ -3,6 +3,7 @@ const OpenAI = require('openai');
 const axios = require('axios');
 const User = require('../userSchema'); // Assuming your user schema is in this folder
 const Retell = require('retell-sdk');
+const mongoose= require('mongoose')
 
 const router = express.Router();
 const openai = new OpenAI({
